@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prashali's Creative Corner</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background: #fffafc;
+    color: #333;
+  }
+
+  /* HEADER */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+    padding: 15px 25px;
+    flex-wrap: wrap;
+    color: #fff;
+  }
+  header .left {
+    display: flex;
+    align-items: center;
+  }
+  header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-right: 12px;
+    object-fit: cover;
+  }
+  header h1 {
+    font-size: 1.8em;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: -webkit-linear-gradient(#fff, #ffe6f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  header .contact-info {
+    text-align: right;
+    font-size: 0.9em;
+    line-height: 1.4em;
+  }
+  header .contact-info a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* PRODUCT SECTION */
+  .product-section {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .product-section h2 {
+    font-size: 2em;
+    color: #ff69b4;
+    margin-bottom: 20px;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  .product {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .product:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  .product img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  .product h3 {
+    font-size: 1.1em;
+    margin: 10px 0 5px;
+    color: #ff4081;
+  }
+  .product p {
+    font-size: 0.9em;
+    color: #666;
+    padding: 0 10px 10px;
+  }
+
+  /* MODAL POPUP */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-content {
+    background: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 16px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+  }
+  .modal-content img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .close {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+  }
+  .close:hover {
+    color: #ff4081;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+  /* CONTACT SECTION */
+  .contact-section {
+    background-color: #fff0f5;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .contact-section h2 {
+    color: #ff69b4;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+
+  /* FOOTER */
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em;
+  }
+  footer a {
+    color: #ffb6c1;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      text-align: center;
+    }
+    header .contact-info {
+      text-align: center;
+      margin-top: 8px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="left">
+    <img src="https://picsum.photos/100" alt="Logo">
+    <h1>🌸 Prashali's Creative Corner 🌸</h1>
+  </div>
+  <div class="contact-info">
+    <div>📞 <a href="tel:+919876543210">+91-9876543210</a></div>
+    <div>📧 <a href="mailto:info@prashaliscreativecorner.com">info@prashaliscreativecorner.com</a></div>
+  </div>
+</header>
+
+<section class="product-section">
+  <h2>Our Products</h2>
+  <div class="product-grid" id="productGrid">
+    <div class="product" data-title="Customized Toy" data-img="https://picsum.photos/400/300?random=1" data-desc="Personalized creative toys for kids with your child’s name or favorite theme.">
+      <img src="https://picsum.photos/200/300?random=1" alt="Product 1">
+      <h3>Customized Toy</h3>
+      <p>Personalized creative toys for kids.</p>
+    </div>
+    <div class="product" data-title="Gift Hampers" data-img="https://picsum.photos/400/300?random=2" data-desc="Creative and custom-made gift hampers designed for every special occasion.">
+      <img src="https://picsum.photos/200/300?random=2" alt="Product 2">
+      <h3>Gift Hampers</h3>
+      <p>Creative and custom-made gift hampers.</p>
+    </div>
+    <div class="product" data-title="Stationery" data-img="https://picsum.photos/400/300?random=3" data-desc="Beautiful stationery sets with creative touch to brighten your workspace.">
+      <img src="https://picsum.photos/200/300?random=3" alt="Product 3">
+      <h3>Stationery</h3>
+      <p>Beautiful and unique stationery sets.</p>
+    </div>
+    <div class="product" data-title="Artificial Plants" data-img="https://picsum.photos/400/300?random=4" data-desc="Lifelike artificial plants to decorate your home or office with elegance.">
+      <img src="https://picsum.photos/200/300?random=4" alt="Product 4">
+      <h3>Artificial Plants</h3>
+      <p>Elegant plants for home & office décor.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section">
+  <h2>Contact Us</h2>
+  <p><strong>Email:</strong> info@prashaliscreativecorner.com</p>
+  <p><strong>Phone:</strong> +91-9876543210</p>
+  <p><strong>Address:</strong> Apex The Kremlin, Siddharth Vihar, Ghaziabad, UP</p>
+</section>
+
+<footer>
+  <a href="#">About Us</a> |
+  <a href="#">What We Offer</a> |
+  <a href="#">Contact Us</a>
+  <p style="margin-top:10px;">© 2025 Prashali's Creative Corner. All rights reserved.</p>
+</footer>
+
+<!-- POPUP MODAL -->
+<div id="popupModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <img id="modalImg" src="" alt="Product Detail">
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script>
+  // Select elements
+  const products = document.querySelectorAll('.product');
+  const modal = document.getElementById('popupModal');
+  const modalImg = document.getElementById('modalImg');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const closeModal = document.getElementById('closeModal');
+
+  // Open modal on product click
+  products.forEach(p => {
+    p.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modalImg.src = p.dataset.img;
+      modalTitle.textContent = p.dataset.title;
+      modalDesc.textContent = p.dataset.desc;
+    });
+  });
+
+  // Close modal
+  closeModal.onclick = () => modal.style.display = 'none';
+  window.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
+</script>
+
+</body>
+</html>
