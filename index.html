@@ -120,22 +120,18 @@
     position: relative;
     animation: fadeIn 0.3s ease;
   }
+
+  /* Large modal for footer links */
+  .modal-content.large {
+    max-width: 700px;
+    text-align: left;
+  }
+
   .modal-content img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
-  }
-  .close {
-    position: absolute;
-    right: 12px;
-    top: 8px;
-    font-size: 24px;
-    color: #888;
-    cursor: pointer;
-  }
-  .close:hover {
-    color: #ff4081;
   }
 
   @keyframes fadeIn {
@@ -167,6 +163,7 @@
     color: #ffb6c1;
     text-decoration: none;
     margin: 0 10px;
+    cursor: pointer;
   }
 
   /* RESPONSIVE */
@@ -187,7 +184,7 @@
 <header>
   <div class="left">
     <img src="https://picsum.photos/100" alt="Logo">
-    <h1>🌸 Prashali's Creative Corner 🌸</h1>
+    <h1>Prashali's Creative Corner</h1>
   </div>
   <div class="contact-info">
     <div>📞 <a href="tel:+919555960606">+91-9555960606</a></div>
@@ -229,32 +226,35 @@
 </section>
 
 <footer>
-  <a href="#">About Us</a> |
-  <a href="#">What We Offer</a> |
-  <a href="#">Contact Us</a>
+  <a id="aboutLink">About Us</a> |
+  <a id="offerLink">What We Offer</a> |
+  <a id="contactLink">Contact Us</a>
   <p style="margin-top:10px;">© 2025 Prashali's Creative Corner. All rights reserved.</p>
 </footer>
 
-<!-- POPUP MODAL -->
+<!-- PRODUCT POPUP -->
 <div id="popupModal" class="modal">
   <div class="modal-content">
-    <span class="close" id="closeModal">&times;</span>
     <img id="modalImg" src="" alt="Product Detail">
     <h2 id="modalTitle"></h2>
     <p id="modalDesc"></p>
   </div>
 </div>
 
+<!-- FOOTER MODAL -->
+<div id="footerModal" class="modal">
+  <div class="modal-content large" id="footerModalContent">
+  </div>
+</div>
+
 <script>
-  // Select elements
   const products = document.querySelectorAll('.product');
   const modal = document.getElementById('popupModal');
   const modalImg = document.getElementById('modalImg');
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDesc');
-  const closeModal = document.getElementById('closeModal');
 
-  // Open modal on product click
+  // Open product modal
   products.forEach(p => {
     p.addEventListener('click', () => {
       modal.style.display = 'flex';
@@ -263,12 +263,51 @@
       modalDesc.textContent = p.dataset.desc;
     });
   });
-
-  // Close modal
-  closeModal.onclick = () => modal.style.display = 'none';
   window.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
+
+  // FOOTER MODALS
+  const footerModal = document.getElementById('footerModal');
+  const footerModalContent = document.getElementById('footerModalContent');
+
+  const pages = {
+    about: {
+      title: "About Us",
+      content: `<p>At <strong>Prashali's Creative Corner</strong>, creativity meets happiness! We specialize in transforming simple things into delightful, personalized treasures — from handcrafted gifts to vibrant home décor. Each creation is made with love, passion, and attention to detail to make every moment special.</p>`
+    },
+    offer: {
+      title: "What We Offer",
+      content: `<ul>
+        <li>✨ Customized Toys — Personal gifts for little ones</li>
+        <li>🎁 Gift Hampers — Crafted for birthdays, festivals & celebrations</li>
+        <li>🖊️ Stationery — Artistic and useful items for daily inspiration</li>
+        <li>🌿 Artificial Plants — Elegant décor for home or office</li>
+      </ul>
+      <p>We also accept bulk and customized orders for events, corporate gifting, and schools.</p>`
+    },
+    contact: {
+      title: "Contact Us",
+      content: `<p>We’d love to hear from you! Reach out for custom orders, collaborations, or queries.</p>
+      <p><strong>Email:</strong> info@prashaliscreativecorner.com<br>
+      <strong>Phone:</strong> +91-9555960606<br>
+      <strong>Address:</strong> Apex The Kremlin, Siddharth Vihar, Ghaziabad, UP</p>`
+    }
+  };
+
+  function openFooterModal(pageKey) {
+    const page = pages[pageKey];
+    footerModalContent.innerHTML = `<h2 style="color:#ff69b4;">${page.title}</h2>${page.content}`;
+    footerModal.style.display = 'flex';
+  }
+
+  document.getElementById('aboutLink').onclick = () => openFooterModal('about');
+  document.getElementById('offerLink').onclick = () => openFooterModal('offer');
+  document.getElementById('contactLink').onclick = () => openFooterModal('contact');
+
+  window.onclick = e => {
+    if (e.target === footerModal) footerModal.style.display = 'none';
+    if (e.target === modal) modal.style.display = 'none';
+  };
 </script>
 
 </body>
 </html>
-
