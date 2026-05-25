@@ -1,0 +1,58 @@
+const PRODUCTS = [
+  {
+    title: "Stationary",
+    eyebrow: "Creative paper goods",
+    url: "stationary.html",
+    image: "assets/images/category/stationery.png",
+    thumbnail: "assets/images/category/stationery.png",
+    summary: "Beautiful and unique stationary sets.",
+    description: "Thoughtfully designed stationary sets for school, gifting, desks, and everyday notes.",
+    highlights: [
+      "Name-personalized sets for children and return gifts",
+      "Coordinated notebooks, tags, labels, and desk essentials",
+      "Useful, cheerful designs for birthdays, schools, and events",
+    ],
+  },
+  {
+    title: "Toys",
+    eyebrow: "Personalized playful gifts",
+    url: "toys.html",
+    image: "assets/images/category/toys.png",
+    thumbnail: "assets/images/category/toys.png",
+    summary: "Personalized creative toys for kids.",
+    description: "Soft, colorful, kid-friendly toy ideas customized around names, favorite themes, and occasions.",
+    highlights: [
+      "Theme-based toys for birthdays and milestones",
+      "Custom names, colors, and presentation options",
+      "Designed for memorable gifting and playful decor",
+    ],
+  },
+  {
+    title: "Artificial Plants",
+    eyebrow: "Fresh-looking decor",
+    url: "artificial-plants.html",
+    image: "assets/images/category/artificial_plants.png",
+    thumbnail: "assets/images/category/artificial_plants.png",
+    summary: "Elegant plants for home and office decor.",
+    description: "Low-maintenance artificial plants styled to add warmth to homes, work desks, and event corners.",
+    highlights: [
+      "Desk, shelf, table, and gifting arrangements",
+      "Neat decorative finishes for home and office spaces",
+      "Great for long-lasting festival and housewarming gifts",
+    ],
+  },
+  {
+    title: "Gifts",
+    eyebrow: "Occasion-ready hampers",
+    url: "gifts.html",
+    image: "assets/images/category/gifts.png",
+    thumbnail: "assets/images/category/gifts.png",
+    summary: "Creative and custom-made gifts.",
+    description: "Custom gifts and hampers curated with color, theme, and presentation in mind.",
+    highlights: [
+      "Birthday, festival, school, and corporate gifting options",
+      "Personalized packaging, notes, and theme styling",
+      "Bulk and custom orders planned around your budget",
+    ],
+  },
+];
