@@ -20,6 +20,8 @@ prashalis-creative-corner/
     |-- css/
     |   `-- styles.css
     |-- js/
+    |   |-- layout.js
+    |   |-- category-products.js
     |   |-- products.js
     |   `-- main.js
     `-- images/
@@ -34,6 +36,27 @@ Home-page category names, summaries, image URLs, and page URLs live in `assets/j
 Category page content lives in the individual HTML files, such as `stationary.html` and `gifts.html`.
 
 When product photos change, place them in `assets/images/category/` and update the related paths.
+
+## Editing Category Product Lists
+
+Products shown inside each category page live in `assets/js/category-products.js`.
+
+Each category has two sections:
+
+- `popular`
+- `available`
+
+Each product supports `name`, `title`, `price`, and optional `image`.
+
+## Editing The Layout
+
+The shared header and footer live in `assets/js/layout.js`.
+
+Each HTML page should keep only its unique `<main class="page-main">...</main>` content and include:
+
+```html
+<script src="assets/js/layout.js" defer></script>
+```
 
 ## Editing Styles
 
